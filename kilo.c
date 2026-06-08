@@ -36,10 +36,10 @@ void enableRawMode(){
     atexit(disableRawMode);
 
     struct termios raw = orig_termios;
-    raw.c_iflag &= ~(BRKINT | ICRNL | INPCK | ISTRIP | IXON); // input flag
+    raw.c_iflag &= ~(BRKINT | ICRNL | INPCK | ISTRIP | IXON); // input flags
     raw.c_iflag &= ~(OPOST); // output
     raw.c_cflag |= (CS8);
-    raw.c_lflag &= ~(ECHO | ICANON | IEXTEN | ISIG); //local flags 
+    raw.c_lflag &= ~(ECHO | ICANON | IEXTEN | ISIG); //local flags   
     raw.c_cc[VMIN] = 0; // cc = control characters
     raw.c_cc[VTIME] = 1;
     
